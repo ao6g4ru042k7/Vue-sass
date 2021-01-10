@@ -1,0 +1,135 @@
+// MEDIA
+/*
+大小
+heading-1       4.5rem
+heading-2       4rem
+heading-3       3.5rem
+heading-4       3rem
+heading-5       2.5rem
+heading-6       2rem
+
+樣式
+
+paragraph       1.5rem
+*/
+
+$text-style-list: rotation normal;
+$heading-size-list: 4.5rem 4rem 3.5rem 3rem 2.5rem 2rem 1.5rem 1rem;
+$text-color-list: green blue orange primary white black white grey;
+
+%heading {
+  font-weight: 400;
+}
+//****************** 文字造型 ******************
+%normal {
+  font-size: 1.5rem;
+  font-family: $font-display;
+  font-weight: 400;
+  line-height: 1.5;
+}
+%rotation {
+  // display: inline-block;
+  background-clip: text;
+  -webkit-background-clip: text;
+  letter-spacing: 0.2rem;
+  color: transparent;
+  transition: all 0.2s;
+  &:hover {
+    transform: skew(10deg, 2deg) scale(1.1);
+    text-shadow: 0.5rem 0.5rem 2rem rgba($color-black, 0.2);
+    @media only screen and (hover: none){
+      transform: none;
+      text-shadow: none;
+    }
+  }
+
+
+}
+
+//****************** 文字顏色 ******************
+%text-color-rotation-primary {
+  background-image: linear-gradient(to right, $color-primary-light, $color-primary-dark);
+}
+%text-color-rotation-green {
+  background-image: linear-gradient(to right, $color-green-light, $color-green-dark);
+}
+%text-color-rotation-blue {
+  background-image: linear-gradient(to right, $color-blue-light, $color-blue-dark);
+}
+%text-color-rotation-orange {
+  background-image: linear-gradient(to right, $color-orange-light, $color-orange-dark);
+}
+%text-color-rotation-white {
+  background-image: linear-gradient($color-white, $color-white);
+}
+%text-color-rotation-black {
+  background-image: linear-gradient($color-black, $color-black);
+}
+%text-color-rotation-grey {
+  background-image: linear-gradient($color-grey-dark-3, $color-grey-dark-1);
+}
+
+%text-color-normal-primary {
+  color: $color-primary;
+}
+%text-color-normal-green {
+  color: $color-green;
+}
+%text-color-normal-blue {
+  color: $color-blue;
+}
+%text-color-normal-orange {
+  color: $color-orange;
+}
+%text-color-normal-white {
+  color: $color-white;
+}
+%text-color-normal-black {
+  color: $color-black;
+}
+%text-color-normal-grey {
+  color: $color-grey-dark-1;
+}
+// $u-heading-style-color-size ex: u-heading-rotation-green-1
+@for $heading-size from 1 through 8 {
+  @each $text-style in $text-style-list {
+    @each $text-color in $text-color-list {
+      .u-heading-#{$text-style}-#{$text-color}-#{$heading-size} {
+        font-size: nth($heading-size-list, $heading-size);
+        @extend %#{$text-style};
+
+        @if $text-style == rotation {
+          @extend %text-color-rotation-#{$text-color};
+        } @else if $text-style == normal {
+          @extend %text-color-normal-#{$text-color};
+        }
+      }
+    }
+  }
+}
+
+.u-heading-1 {
+  font-size: 4.5rem;
+}
+.u-heading-2 {
+  font-size: 4rem;
+}
+.u-heading-3 {
+  font-size: 3.5rem;
+}
+.u-heading-4 {
+  font-size: 3rem;
+}
+.u-heading-5 {
+  font-size: 2.5rem;
+}
+.u-heading-6 {
+  font-size: 2rem;
+}
+.u-paragraph {
+  font-size: 1.5rem;
+}
+.u-text-center{
+  text-align: center !important;
+  margin: 0 auto;
+}

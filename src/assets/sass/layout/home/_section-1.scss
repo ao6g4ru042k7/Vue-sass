@@ -1,0 +1,97 @@
+.home {
+  .section-1 {
+    display: grid;
+    grid-template-columns: minmax(1rem, 1fr) repeat(2, minmax(0rem, 57rem)) minmax(4rem, 1fr);
+    // grid-template-rows: repeat(2, min-content);
+    grid-template-rows: repeat(auto-fit, min-content);
+    grid-column-gap: 3rem;
+    padding: 6rem 0 10rem 0;
+
+    &--title {
+      padding: 0 2rem;
+      text-align: center;
+      grid-column: 1/-1;
+      grid-row: 1/2;
+      @media only screen and (max-width: 500px) {
+        font-size: 3.5rem;
+        // padding: 0 1.5rem;
+
+      }
+    }
+    &--text {
+      grid-column: 2/3;
+      grid-row: 2/3;
+      padding-right: 2rem;
+      @media only screen and (max-width: 1100px) {
+        justify-self: center;
+        max-width: 70rem;
+        grid-column: 2/4;
+        grid-row: 2/3;
+      }
+    }
+    &--photos {
+      // background-color: red;
+      grid-column: 3/4;
+      grid-row: 2/3;
+      position: relative;
+      
+      @media only screen and (max-width: 1100px) {
+        grid-column: 1/5;
+        grid-row: 3/4;
+        height: 24vw;
+      }
+    }
+    &--photo {
+      display: inline-block;
+      box-shadow: 0 2rem 2rem rgba($color: black, $alpha: 0.2);
+
+      width: 55%;
+      @media only screen and (max-width: 1100px) {
+        width: 33.33%;
+      }
+      object-fit: cover;
+      transition: all 0.2s;
+      outline-offset: 1.5rem;
+      &-1 {
+        position: absolute;
+        top: 10%;
+        left: 0%;
+        @media only screen and (max-width: 1100px) {
+          top: 3%;
+          left: 7%;
+          // z-index: 3;
+        }
+      }
+      &-2 {
+        position: absolute;
+        top: 25%;
+        left: 45%;
+        @media only screen and (max-width: 1100px) {
+          top: 0%;
+          left: 33%;
+          z-index: 2;
+        }
+      }
+      &-3 {
+        @media only screen and (max-width: 1200px) {
+          top: 40%;
+        }
+        @media only screen and (max-width: 1100px) {
+          top: 4%;
+          left: 60%;
+          // z-index: 3;
+        }
+        position: absolute;
+        top: 50%;
+        left: 15%;
+      }
+      &-1:hover,
+      &-2:hover,
+      &-3:hover {
+        z-index: 999;
+        transform: scale(1.05);
+        outline: 1.5rem solid $color-primary;
+      }
+    }
+  }
+}

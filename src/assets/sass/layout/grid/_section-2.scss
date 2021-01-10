@@ -1,0 +1,29 @@
+.grid {
+  .section-2 {
+    background-color: $color-secondary-dark;
+    background-image: linear-gradient(rgba($color-secondary-light, 0.93), rgba($color-secondary-light, 0.8)),
+      url(assets/img/photo-1.jpg);
+    background-size: cover;
+    border-radius: 3px;
+    margin: 3.5rem;
+
+    display: grid;
+    @media only screen and (max-width: 1100px) {
+      margin: 0;
+      border-radius: 0;
+    }
+  }
+  .homes {
+    // margin: 7rem auto;
+    margin: 7rem auto;
+
+    padding: 0 7rem;
+    // margin: 0 auto;
+
+    // grid-column: center-start/center-end;
+
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(25rem, 1fr));
+    grid-gap: 7rem;
+  }
+}

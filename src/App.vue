@@ -1,32 +1,51 @@
 <template>
   <div id="app">
     <div id="nav">
-      <router-link to="/">Home</router-link> |
-      <router-link to="/about">About</router-link>
+      <Navigation />
     </div>
-    <router-view/>
+    <div id="section">
+      <router-view />
+    </div>
+    <div id="footer">
+      <Footer />
+    </div>
   </div>
 </template>
 
-<style>
-#app {
-  font-family: 'Avenir', Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-}
+<script>
+import Navigation from "@/components/navigation.vue";
+import Footer from "@/layout/footer.vue";
 
+export default {
+  components: {
+    Navigation,
+    Footer
+  }
+};
+</script>
+<style lang="scss">
+//載入Google字體
+@import url("https://fonts.googleapis.com/css?family=Noto+Sans+TC|Nunito|Josefin+Sans:300,400,400i&display=swap");
+
+//載入自訂SCSS
+@import "assets/sass/main.scss";
+
+@import "assets/img/font-awesome/css/fontawesome.min.css";
 #nav {
-  padding: 30px;
+  z-index: 9999;
+  width: 100%;
+  height: 6rem;
+  position: fixed;
+  top: 0;
+  left: 0;
 }
-
-#nav a {
-  font-weight: bold;
-  color: #2c3e50;
+#section {
+  position: relative;
+  top: 6rem;
 }
-
-#nav a.router-link-exact-active {
-  color: #42b983;
+#footer {
+  position: relative;
+  top: 6rem;
+  font-size: 10rem;
 }
 </style>

@@ -1,0 +1,77 @@
+// .home {
+.header {
+  background-image: linear-gradient(rgba($color-secondary, 0.93), rgba($color-secondary, 0.8)),
+    url(assets/img/photo-1.jpg);
+  // background-image: linear-gradient(rgba($color-blue-light, 0.93), rgba($color-blue-light, 0.8)),
+  // url(../public/img/photo-1.jpg);
+  background-size: cover;
+  padding: 6rem;
+  &__logo {
+    background-color: $color-primary;
+    align-self: center;
+    height: 20rem;
+    @media only screen and (max-width: 600px) {
+      height: 25rem;
+    }
+    -webkit-mask: url(assets/img/meteor-solid.svg) no-repeat center;
+    mask: url(assets/img/meteor-solid.svg) no-repeat center;
+  }
+  // display: flex;
+  // justify-content: stretch;
+  // justify-content: center;
+  // align-items: center;
+  // text-align: center;
+  &__skill {
+    // background-color: red;
+    grid-row: 4/-1;
+    align-self: end;
+    &-text {
+      font-size: 1.5rem;
+      text-align: center;
+      color: $color-grey-light-2;
+      display: grid;
+      grid-template-columns: 1fr max-content 1fr;
+      align-items: center;
+      grid-column-gap: 1.5rem;
+      margin-bottom: 0.4rem;
+      &::before,
+      &::after {
+        content: "";
+        height: 1px;
+        display: block;
+        background-color: currentColor;
+      }
+    }
+    &-imgs {
+      justify-self: end;
+      display: flex;
+      justify-content: space-between;
+      padding: 1rem 2rem;
+      background-color: rgba($color-grey-light-2, 0.5);
+      // border: 1rem solid rgba($color-secondary-dark,.7);
+      img {
+        height: 8rem;
+        @media only screen and (max-width:500px) {
+          height: 5.5rem;
+        }
+      }
+    }
+  }
+}
+.container {
+  // display: flex;
+  display: grid;
+  grid-template-rows: 1fr min-content min-content;
+
+  // grid-template-rows: 1fr min-content min-content 1fr;
+  // grid-template-columns: minmax(min-content,max-content);
+  align-items: end;
+  grid-row-gap: 1.5rem;
+  text-align: center;
+  align-content: end;
+  // justify-content: center;
+  height: 100%;
+  max-width: 90rem;
+  margin: 0 auto;
+}
+// }
